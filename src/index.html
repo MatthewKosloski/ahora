@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en-US" ng-app="ahora"> 
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <meta name="author" content="Matthew Kosloski">
+        <meta name="keywords" content="weather, temperature, forecast, world, climate, chance of rain, humidity, wind">
+        <meta name="description" content="Ahora is a web app that shows your current location's temperature, wind speed, chance of rain, humidity, and 4-day forecast.  Additionally, it allows you to retrieve weather data from any location on earth instantly!">
+
+        <meta property="og:title" content="Ahora &bullet; An accurate, informative weather app">
+        <meta property="og:type" content="website">
+        <meta property="og:site_name" content="Ahora">
+        <meta property="og:url" content="/">
+        <meta property="og:description" content="Ahora is a web app that shows your current location's temperature, wind speed, chance of rain, humidity, and 4-day forecast.  Additionally, it allows you to retrieve weather data from any location on earth instantly!">
+
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:url" content="/">
+        <meta name="twitter:title" content="Ahora &bullet; An accurate, informative weather app">
+        <meta name="twitter:description" content="Ahora is a web app that shows your current location's temperature, wind speed, chance of rain, humidity, and 4-day forecast.  Additionally, it allows you to retrieve weather data from any location on earth instantly!">
+
+
+        <!-- Go to realfavicongenerator.net to generate favicons -->
+
+        <title>Ahora &bullet; An accurate, informative weather app</title> 
+        <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+        <link rel="stylesheet" href="./css/style.css">
+        <!-- change to "style.min.css" when running "gulp build" -->  
+    </head>
+    <body>
+        <div class="outer">
+             <div class="inner">
+                <div class="content" ng-controller="MainController" ng-cloak>
+                    <div class="units">
+                        <label class="option">
+                            <input type="radio" id="fah" name="units" value="fah" checked="checked">
+                            <span>F&deg;</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" id="cel" name="units" value="cel">
+                            <span>C&deg;</span>
+                        </label>
+                    </div>
+                    <div ng-show="status || !dataLoaded">{{status}}</div>
+                    <div class="loader" ng-hide="dataLoaded || err"></div>
+                    <div ng-show="dataLoaded">
+                        <div class="search">
+                            <form ng-submit="query(city)" ahora-show-data-on-submit>
+                                <input class="search__input" type="text" ng-model="city" autocomplete="off">
+                            </form>
+                            <div id="search__cancel" ahora-show-data-on-click>cancel</div>
+                        </div>
+                        <section class="summary animated fadeInDown">
+                            <h1>Right now in <strong id="city">{{city}}</strong><span id="condition">, {{summary}}.</span></h1>
+                        </section>
+                        <section class="data animated bounceIn">
+                            <span class="icon-span">
+                                <svg ahora-search-event id="icon" width="32" height="32" viewBox="0 0 51 51" xmlns="http://www.w3.org/2000/svg"><title>Shape</title><path d="M46.238 40.31l-9.75-9.75c1.7-2.747 2.725-5.954 2.725-9.42 0-9.957-8.07-18.028-18.027-18.028S3.158 11.182 3.158 21.14c0 9.956 8.07 18.027 18.028 18.027 3.466 0 6.672-1.026 9.418-2.72l9.752 9.748c1.625 1.625 4.257 1.625 5.882 0s1.625-4.26 0-5.885zm-25.052-6.69c-6.893 0-12.48-5.588-12.48-12.48s5.587-12.48 12.48-12.48c6.892 0 12.48 5.588 12.48 12.48s-5.588 12.48-12.48 12.48z" fill="#DDD" fill-rule="evenodd"/></svg>
+                            </span>
+                            <div class="currently row">
+                                <div class="column large-6 medium-6 small-6">
+                                    <div class="currently__temp"><span>{{temperature}}&deg;</span></div>
+                                    <div class="stats">
+                                        <div class="column large-4 medium-4 small-4">
+                                            <ul class="currently__high">
+                                                <li>high</li>
+                                                <li>{{high}}&deg;</li>
+                                            </ul>
+                                        </div>
+                                        <div class="column large-4 medium-4 small-4">
+                                            <ul class="currently__low">
+                                                <li>low</li>
+                                                <li>{{low}}&deg;</li>
+                                            </ul>
+                                        </div>
+                                        <div class="column large-4 medium-4 small-4">
+                                            <ul class="currently__wind">
+                                                <li>wind</li>
+                                                <li>{{wind}}</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="currently__icon column large-6 medium-6 small-6" ng-include="getInclude()">
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="forecast row">
+                                <div class="column">
+                                    <div class="day" ng-repeat="day in forecast">
+                                        <ul>
+                                            <li class="day__name">{{day.name}}</li>
+                                            <li class="day__icon"><img ng-src="./img/{{day.icon}}.svg" width="32" height="32" alt="{{day.icon}}"></li>
+                                            <li class="day__temps"><span class="day__high">{{day.high}}&deg;</span> <span class="day__low">{{day.low}}&deg;</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="./js/script.js"></script>
+    <!-- change to "script.min.js" when running "gulp build" -->      
+    </body>
+</html>   

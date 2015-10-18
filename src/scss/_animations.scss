@@ -1,0 +1,267 @@
+.clear-day {
+	@include animation(clearDay 15s linear infinite both);
+}
+
+@include keyframes(clearDay) {
+	0% {
+		@include transform(rotate(0deg));
+	}
+	100% {
+		@include transform(rotate(360deg));
+	}
+}
+
+.clear-night {
+	@include animation(clearNight 5s ease-in-out infinite both);
+}
+
+@include keyframes(clearNight) {
+	0% {
+		@include transform(rotate(0deg));
+	}
+	50% {
+		@include transform(rotate(-15deg));
+	}
+	100% {
+		@include transform(rotate(0deg));
+	}
+}
+
+.rain g path {
+	&:nth-child(1) {
+		@include animation(raini 1.2s cubic-bezier(0.22, 0.61, 0.36, 1) infinite);
+		opacity: 0;	
+	}
+	&:nth-child(2) {
+		@include animation(rainii 1.2s cubic-bezier(0.22, 0.61, 0.36, 1) infinite);
+		opacity: 0;	
+	}
+	&:nth-child(3) {
+		@include animation(rainiii 1.2s cubic-bezier(0.22, 0.61, 0.36, 1) infinite);
+		opacity: 0;	
+	}
+}
+
+@include keyframes(raini) {
+	0%, 100% {
+		opacity: 0;
+	}
+	0% {
+		@include transform(translate(6px,-6px));
+	}
+	25%, 50%, 75% {
+		opacity: 1;
+	}
+	100% {
+		@include transform(translate(0px,0px));	
+	}
+}
+
+@include keyframes(rainii) {
+	0%, 25%, 100% {
+		opacity: 0;
+	}
+	25% {
+		@include transform(translate(6px,-6px));
+	}
+	50%, 75% {
+		opacity: 1;
+	}
+	100% {
+		@include transform(translate(0px,0px));	
+	}
+}
+
+@include keyframes(rainiii) {
+	0%, 25%, 50%, 100% {
+		opacity: 0;
+	}
+	50% {
+		@include transform(translate(6px,-6px));
+	}
+	75% {
+		opacity: 1;
+	}
+	100% {
+		@include transform(translate(0px,0px));	
+	}
+}
+
+.partly-cloudy-day g path {
+	@include transform-origin(center);
+		&:nth-child(1), &:nth-child(3), &:nth-child(5) {
+			@include animation(scale 3s ease-in-out infinite backwards);
+		} 
+		&:nth-child(2), &:nth-child(4), &:nth-child(6) {
+			@include animation(scale 5s ease-in-out infinite backwards);
+		}
+}
+
+@include keyframes(scale) {
+	0%, 100% {
+		@include transform(scale(0.5,0.5));
+	}
+	50% {
+		@include transform(scale(1,1));
+	}
+}
+
+.partly-cloudy-night path {
+	&:nth-child(1) {
+		@include animation(partlyCloudyNight 5s ease-in-out infinite both);
+	}
+}
+
+@include keyframes(partlyCloudyNight) {
+	0% {
+		@include transform(rotate(0deg));
+	}
+	50% {
+		@include transform(rotate(-5deg));
+	}
+	100% {
+		@include transform(rotate(0deg));
+	}
+}
+
+.snow path {
+	@include transform-origin(center);
+	&:nth-child(1), &:nth-child(3), &:nth-child(5) {
+		@include animation(scale 5s ease-in-out infinite backwards);
+	}
+	&:nth-child(2), &:nth-child(4) {
+		@include animation(scale 3s ease-in-out infinite backwards);
+	}
+}
+
+.sleet path,
+.hail path {
+	@include transform-origin(center);
+	&:nth-child(1) {
+		@include animation(haili 1.5s ease-in-out infinite backwards);
+	}
+	&:nth-child(5) {
+		@include animation(hailii 1.5s ease-in-out infinite backwards);	
+	}
+	&:nth-child(2) {
+		@include animation(hailii 1.5s ease-in-out infinite backwards);
+	}
+	&:nth-child(4) {
+		@include animation(hailiv 1.5s ease-in-out infinite backwards);
+	}
+	&:nth-child(3) {
+		@include animation(hailv 1.5s ease-in-out infinite backwards);
+	}
+}
+
+@include keyframes(haili) {
+	0% {
+		opacity: 0;
+		@include transform(translate(0,-5px));
+	}
+	30% {
+		@include transform(translate(0,1px));
+	}
+	40%, 50%, 60%, 70%, 80%, 90% {
+		opacity: 1;
+	}
+	100% {
+		@include transform(translate(0,0));
+	}
+}
+
+@include keyframes(hailii) {
+	0%, 30%, 40%  {
+		opacity: 0;
+	}
+	50%, 60%, 70%, 80%, 90% {
+		opacity: 1;
+	}
+	30% {
+		@include transform(translate(0,-5px));
+	}
+	60% {
+		@include transform(translate(0,1px));
+	}
+	100% {
+		@include transform(translate(0,0));
+	}
+}
+
+@include keyframes(hailiii) {
+	0%, 30%, 40%, 50% {
+		opacity: 0;
+	}
+	60%, 70%, 80%, 90% {
+		opacity: 1;
+	}
+	40% {
+		@include transform(translate(0,-5px));
+	}
+	70% {
+		@include transform(translate(0,1px));
+	}
+	100% {
+		@include transform(translate(0,0));
+	}
+}
+
+@include keyframes(hailiv) {
+	0%, 30%, 40%, 50%, 60% {
+		opacity: 0;
+	}
+	50% {
+		@include transform(translate(0,-5px));
+	}
+	80% {
+		@include transform(translate(0,1px));
+		opacity: 1;
+	}
+	90% {
+		opacity: 1;
+	}
+	100% {
+		@include transform(translate(0,0));
+	}
+}
+
+@include keyframes(hailv) {
+	0%, 30%, 40%, 50%, 60%, 70% {
+		opacity: 0;
+	}
+	60% {
+		@include transform(translate(0,-5px));
+	}
+	90% {
+		@include transform(translate(0,1px));
+		opacity: 1;
+	}
+	100% {
+		@include transform(translate(0,0));
+	}
+}
+
+.thunderstorm polyline {
+	@include transform-origin(center);
+	&:nth-child(1) {
+		@include animation(thunderstorm 3.5s ease-in-out infinite backwards);
+	}
+}
+
+@include keyframes(thunderstorm) {
+	0%, 35%, 50%, 100% {
+		opacity: 0;
+	}
+	33%, 40%, 55%, 90% {
+		opacity: 1;
+	}
+	0% {
+		@include transform(translate(0,-2px) scale(0.8,0.8));
+	}
+	33% {
+		@include transform(translate(0,1px) scale(1.1,1.1));
+	}
+	90% {
+		@include transform(translate(0,0) scale(1,1));
+	}
+}
