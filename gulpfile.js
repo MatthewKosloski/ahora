@@ -32,7 +32,7 @@ var paths = {
   },
   minifyCSS: {
     src: "./www/css/style.css",
-    new: "script.min.css"
+    new: "style.min.css"
   },
   concatJS: {
     concat: "script.js"
