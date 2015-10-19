@@ -5,19 +5,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <meta name="author" content="Matthew Kosloski">
-        <meta name="keywords" content="weather, temperature, forecast, world, climate, chance of rain, humidity, wind">
-        <meta name="description" content="Ahora is a web app that shows your current location's temperature, wind speed, chance of rain, humidity, and 4-day forecast.  Additionally, it allows you to retrieve weather data from any location on earth instantly!">
+        <meta name="keywords" content="weather, temperature, forecast, world, climate, chance of rain, wind">
+        <meta name="description" content="Ahora is a web app that shows your current location's temperature, wind speed, chance of rain, and 5-day forecast.  Additionally, it allows you to retrieve weather data from any location on earth instantly!">
 
         <meta property="og:title" content="Ahora &bullet; An accurate, informative weather app">
         <meta property="og:type" content="website">
         <meta property="og:site_name" content="Ahora">
         <meta property="og:url" content="/">
-        <meta property="og:description" content="Ahora is a web app that shows your current location's temperature, wind speed, chance of rain, humidity, and 4-day forecast.  Additionally, it allows you to retrieve weather data from any location on earth instantly!">
+        <meta property="og:description" content="Ahora is a web app that shows your current location's temperature, wind speed, chance of rain, and 5-day forecast.  Additionally, it allows you to retrieve weather data from any location on earth instantly!">
 
         <meta name="twitter:card" content="summary">
         <meta name="twitter:url" content="/">
         <meta name="twitter:title" content="Ahora &bullet; An accurate, informative weather app">
-        <meta name="twitter:description" content="Ahora is a web app that shows your current location's temperature, wind speed, chance of rain, humidity, and 4-day forecast.  Additionally, it allows you to retrieve weather data from any location on earth instantly!">
+        <meta name="twitter:description" content="Ahora is a web app that shows your current location's temperature, wind speed, chance of rain, and 5-day forecast.  Additionally, it allows you to retrieve weather data from any location on earth instantly!">
 
 
         <!-- Go to realfavicongenerator.net to generate favicons -->
@@ -25,14 +25,14 @@
         <title>Ahora &bullet; An accurate, informative weather app</title> 
         <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
         <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="./css/style.min.css">
+        <link rel="stylesheet" href="./css/style.css">
         <!-- change to "style.min.css" when running "gulp build" -->  
     </head>
     <body>
         <div class="outer">
              <div class="inner">
                 <div class="content" ng-controller="MainController" ng-cloak>
-                    <ul class="units" ng-show="dataLoaded">
+                    <ul class="units animated fadeIn" ng-show="dataLoaded">
                         <li ng-class="{'active':unit=='celcius'}">
                             <label>
                                 <input type="radio" name="unit" ng-model="unit" value="celcius" ng-change="unit='celcius'" ng-click="setLocalUnit('c')">
@@ -106,7 +106,7 @@
                 </div>
             </div>
         </div>
-        <script src="./js/script.min.js"></script>
+        <script src="./js/script.js"></script>
         <script>
             var GoSquared={};GoSquared.acct="GSN-121401-L";(function(w){function gs(){w._gstc_lt=+new Date;var d=document,g=d.createElement("script");g.type="text/javascript";g.src="//d1l6p2sc9645hc.cloudfront.net/tracker.js";var s=d.getElementsByTagName("script")[0];s.parentNode.insertBefore(g,s)}w.addEventListener?w.addEventListener("load",gs,false):w.attachEvent("onload",gs)})(window);
         </script>
