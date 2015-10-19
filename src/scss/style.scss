@@ -139,12 +139,6 @@ body {
 	margin-top: -45px;
 }
 
-.currently__icon {
-	svg {
-		margin-top: 25px;
-	}
-}
-
 hr {
 	border-bottom: 1px solid #dbdbdb;
     display: block;
@@ -166,7 +160,8 @@ ul[class*="currently__"] li:last-child {
 	font-size: rem(24);
 }
 
-.mph {
+.mph,
+.kmh {
 	font-size: rem(14);
 }
 

@@ -31,16 +31,20 @@
         <div class="outer">
              <div class="inner">
                 <div class="content" ng-controller="MainController" ng-cloak>
-                    <div class="units">
-                        <label class="option">
-                            <input type="radio" id="fah" name="units" value="fah" checked="checked">
-                            <span>F&deg;</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" id="cel" name="units" value="cel">
-                            <span>C&deg;</span>
-                        </label>
-                    </div>
+                    <ul class="units" ng-show="dataLoaded">
+                        <li ng-class="{'active':unit=='celcius'}">
+                            <label>
+                                <input type="radio" name="unit" ng-model="unit" value="celcius" ng-change="unit='celcius'" ng-click="setLocalUnit('c')">
+                                <span>&deg;C</span>
+                            </label>
+                        </li>
+                        <li ng-class="{'active':unit=='fahrenheit'}">
+                            <label>
+                                <input type="radio" name="unit" ng-model="unit" value="fahrenheit" ng-change="unit='fahrenheit'" ng-click="setLocalUnit('f')">
+                                <span>&deg;F</span>
+                            </label>
+                        </li>
+                    </ul>
                     <div ng-show="status || !dataLoaded">{{status}}</div>
                     <div class="loader" ng-hide="dataLoaded || err"></div>
                     <div ng-show="dataLoaded">
@@ -59,24 +63,24 @@
                             </span>
                             <div class="currently row">
                                 <div class="column large-6 medium-6 small-6">
-                                    <div class="currently__temp"><span>{{temperature}}&deg;</span></div>
+                                    <div class="currently__temp"><span>{{temperature | temperature:unit}}&deg;</span></div>
                                     <div class="stats">
                                         <div class="column large-4 medium-4 small-4">
                                             <ul class="currently__high">
                                                 <li>high</li>
-                                                <li>{{high}}&deg;</li>
+                                                <li>{{high | temperature:unit}}&deg;</li>
                                             </ul>
                                         </div>
                                         <div class="column large-4 medium-4 small-4">
                                             <ul class="currently__low">
                                                 <li>low</li>
-                                                <li>{{low}}&deg;</li>
+                                                <li>{{low | temperature:unit}}&deg;</li>
                                             </ul>
                                         </div>
                                         <div class="column large-4 medium-4 small-4">
                                             <ul class="currently__wind">
                                                 <li>wind</li>
-                                                <li>{{wind}}</li>
+                                                <li>{{wind | windSpeed:unit}}</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -91,7 +95,7 @@
                                         <ul>
                                             <li class="day__name">{{day.name}}</li>
                                             <li class="day__icon"><img ng-src="./img/{{day.icon}}.svg" width="32" height="32" alt="{{day.icon}}"></li>
-                                            <li class="day__temps"><span class="day__high">{{day.high}}&deg;</span> <span class="day__low">{{day.low}}&deg;</span></li>
+                                            <li class="day__temps"><span class="day__high">{{day.high | temperature:unit}}&deg;</span> <span class="day__low">{{day.low | temperature:unit}}&deg;</span></li>
                                         </ul>
                                     </div>
                                 </div>

@@ -15,7 +15,7 @@ var paths = {
     /*
       Ignore these classes (found in animations.js factory)
     */
-    ignore: [".animated", ".bounceIn", ".bounceOut", ".fadeOutUp", ".flash", ".fadeInDown"],
+    ignore: [".animated", ".bounceIn", ".bounceOut", ".fadeOutUp", ".flash", ".fadeInDown", ".active"],
     src: {
       html: ["./assets/**/*.html","./src/*.html"],
       css: "./www/css/style.css"
@@ -59,11 +59,13 @@ var paths = {
   js: {
     src: [
       "./src/lib/angular/angular.js",
+      "./src/lib/angular-local-storage/dist/angular-local-storage.js",
       "./src/js/app.js",
       "./src/js/modules/*.js",
       "./src/js/controllers/*.js",
       "./src/js/factories/*.js",
       "./src/js/directives/*.js",
+      "./src/js/filters/*.js"
     ],
     dest: "./www/js/"
   }

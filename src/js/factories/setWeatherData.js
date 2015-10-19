@@ -26,7 +26,7 @@
 				obj.temperature = Math.round(currently.temperature);
 				obj.low = Math.round(tomorrow.temperatureMin);
 				obj.high = Math.round(tomorrow.temperatureMax);
-				obj.wind = Math.round(currently.windSpeed);
+				obj.wind = Math.round(currently.windSpeed) + " " + "mph";
 				obj.rain = Math.round(currently.precipProbability * 100);
 				obj.humidity = Math.round(currently.humidity * 100);
 				for(var i = 1; i <= 5; i++) {

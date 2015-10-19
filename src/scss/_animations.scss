@@ -1,5 +1,15 @@
+/* 1,6,11,5,10,4,9,2,7, */
 .clear-day {
 	@include animation(clearDay 15s linear infinite both);
+	g path {
+		@include transform-origin(center);
+		&:nth-child(1), &:nth-child(2), &:nth-child(5), &:nth-child(6), &:nth-child(9), &:nth-child(10){
+			@include animation(scale 5s ease-in-out infinite backwards);
+		}
+		&:nth-child(3), &:nth-child(4), &:nth-child(7), &:nth-child(8), &:nth-child(11), &:nth-child(12) {
+			@include animation(scale 3s ease-in-out infinite backwards);
+		}
+	}
 }
 
 @include keyframes(clearDay) {
@@ -107,6 +117,7 @@
 }
 
 .partly-cloudy-night path {
+	@include transform-origin(center);
 	&:nth-child(1) {
 		@include animation(partlyCloudyNight 5s ease-in-out infinite both);
 	}
@@ -117,7 +128,7 @@
 		@include transform(rotate(0deg));
 	}
 	50% {
-		@include transform(rotate(-5deg));
+		@include transform(rotate(-4deg));
 	}
 	100% {
 		@include transform(rotate(0deg));

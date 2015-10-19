@@ -1,6 +1,6 @@
 (function(){
 	angular.module("controllers")
-		.controller("MainController", ["$scope", "getCoordinates", "getQueryCoordinates", "getLocationData", "getPlaces", "getWeatherData", "setWeekDay", "setWeatherData", function($scope, getCoordinates, getQueryCoordinates, getLocationData, getPlaces, getWeatherData, setWeekDay, setWeatherData) {
+		.controller("MainController", ["$scope", "getCoordinates", "getQueryCoordinates", "getLocationData", "getPlaces", "getWeatherData", "setWeekDay", "setWeatherData", "localStorageService", function($scope, getCoordinates, getQueryCoordinates, getLocationData, getPlaces, getWeatherData, setWeekDay, setWeatherData, localStorageService) {
 			$scope.status = "";
 			$scope.dataLoaded = false;
 			$scope.err = false;
@@ -18,6 +18,15 @@
 				return getPlaces.promise();
 			});
 			var promiseD = promiseC.then(function(response){
+				/*
+					If the localStorage item hasn't been set yet, set the default unit to user's country
+					else, the unit is equal to the set ahoraUserUnit value
+				*/
+				if(localStorageService.get("ahoraUserUnit") === null) {
+					$scope.unit = (/BS|BZ|KY|PW|AS|US|VI/.test(response.country)) ? "fahrenheit" : "celcius";
+				} else {
+					$scope.unit = localStorageService.get("ahoraUserUnit");
+				}
 				var coords = response.lat + "," + response.lng;
 				$scope.city = response.city;
 				return getWeatherData.getData(coords);
@@ -69,6 +78,13 @@
 			};
 			$scope.getInclude = function() {
 				return "./partials/" + $scope.icon + ".html";
+			};
+			$scope.setLocalUnit = function(unit) {
+				if(unit === "c") {
+					localStorageService.set("ahoraUserUnit", "celcius");
+				} else if(unit === "f") {
+					localStorageService.set("ahoraUserUnit", "fahrenheit");
+				}
 			};
 		}]);
 })();
