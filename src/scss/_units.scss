@@ -10,10 +10,10 @@
 	}
 	label {
 		cursor: pointer;
-    	padding: 0 rem(10);
+    	padding: 0 rem(12);
 	}
 	li {
-		padding: rem(5) 0 rem(3);
+		padding: 0.3125rem 0 0.37rem;
 		float: left;
 		&:last-child {
 			border-left: 1px solid rgba(255,255,255,0.5);

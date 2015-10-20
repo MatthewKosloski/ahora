@@ -1,13 +1,3 @@
-@font-face {
-  font-family: 'avenirnextltpro-regular';
-  src: url('./assets/fonts/avenir/avenirnextltpro-regular.eot'); /* IE9 Compat Modes */
-  src: url('./assets/fonts/avenir/avenirnextltpro-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('./assets/fonts/avenir/avenirnextltpro-regular.woff2') format('woff2'), /* Super Modern Browsers */
-       url('./assets/fonts/avenir/avenirnextltpro-regular.woff') format('woff'), /* Pretty Modern Browsers */
-       url('./assets/fonts/avenir/avenirnextltpro-regular.ttf')  format('truetype'), /* Safari, Android, iOS */
-       url('./assets/fonts/avenir/avenirnextltpro-regular.svg#svgFontName') format('svg'); /* Legacy iOS */
-}
-
 /*******************************************************************************
  * CUSTOM RESETS && IMPORTS
  ******************************************************************************/
@@ -33,7 +23,7 @@ body {
     background: linear-gradient($topColor, $bottomColor);
     background-attachment: fixed;
     color: $white;
-    font: 112.5%/1.5 $avenir, "Open Sans", "Helvetica Neue", sans-serif;
+    font: 112.5%/1.5 "Open Sans", "Helvetica Neue", sans-serif;
     // @include breakpoint(md) {font-size: 100%;}
     // @include breakpoint(sm) {font-size: 90%;}
     -webkit-font-smoothing: antialiased;
@@ -145,7 +135,7 @@ body {
 }
 
 .stats {
-	margin-top: -45px;
+	margin-top: -20px;
 }
 
 hr {
@@ -166,11 +156,11 @@ ul[class*="currently__"] li:first-child {
 ul[class*="currently__"] li:last-child {
 	text-align: left;
 	color: #2e2e2e;
-	font-size: rem(24);
+	font-size: rem(22);
 }
 
 .currently__temp {
-	font-size: rem(125);
+	font-size: rem(117);
 	font-weight: 400;
 	color: #2e2e2e;
 }
