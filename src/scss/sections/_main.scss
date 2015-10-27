@@ -19,11 +19,7 @@
 .main__content,
 .main__stats {
 	@include transform(translate(-50%,-50%));
-	// -webkit-filter: blur(0px);
-	// -moz-filter: blur(0px);
-	// -o-filter: blur(0px);
-	// -ms-filter: blur(0px);
-	// filter: blur(0px);
+	@include filter(blur(0px));
 	position: absolute;
 	left: 50%;
 	top: 50%;
