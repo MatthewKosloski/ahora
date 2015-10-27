@@ -1,0 +1,165 @@
+@include keyframes(clearDay) {
+	0% {
+		@include transform(rotate(0deg));
+	}
+	100% {
+		@include transform(rotate(360deg));
+	}
+}
+
+@include keyframes(scale) {
+	0%, 100% {
+		@include transform(scale(0.5,0.5));
+	}
+	50% {
+		@include transform(scale(1,1));
+	}
+}
+
+@include keyframes(slightRotate) {
+	0%, 100% {
+		@include transform(rotate(0deg));
+	}
+	50% {
+		@include transform(rotate(-15deg));
+	}
+}
+
+@include keyframes(cloudy) {
+	0%, 100% {
+		@include transform(translateX(-5px));
+	}
+	50% {
+		@include transform(translateX(5px));
+	}
+}
+
+@include keyframes(fog) {
+	0%, 100% {
+		@include transform(translateX(-1px));
+	}
+	50% {
+		@include transform(translateX(1px));
+	}
+}
+
+@include keyframes(raini) {
+	0% {
+		@include transform(translate(0,-5px));
+	}
+	0%, 10%, 20%, 80%, 90%, 100% {
+		opacity: 0;
+	}
+	30%, 40%, 50%, 60%, 70% {
+		opacity: 1;
+	}
+	100% {
+		@include transform(translate(0,12px));
+	}
+}
+
+@include keyframes(rainii) {
+	0% {
+		@include transform(translate(0,-13px));
+	}
+	0%, 10%, 20%, 80%, 90%, 100% {
+		opacity: 0;
+	}
+	30%, 40%, 50%, 60%, 70% {
+		opacity: 1;
+	}
+	100% {
+		@include transform(translate(0,4px));
+	}
+}
+
+@include keyframes(windi) {
+	0%, 30%, 40%, 50%, 60%, 70%, 100% {
+		@include transform(translate(0,0));
+	}
+	10% {
+		@include transform(translate(-3px,0));		
+	}
+	20% {
+		@include transform(translate(3px,0));		
+	}
+	80% {
+		@include transform(translate(-3px,0));	
+	}
+	90% {
+		@include transform(translate(3px,0));	
+	}
+}
+
+@include keyframes(windii) {
+	0%, 30%, 40%, 50%, 60%, 70%, 100% {
+		@include transform(translate(0,0));
+	}
+	10% {
+		@include transform(translate(-2.5px,0));		
+	}
+	20% {
+		@include transform(translate(5px,0));		
+	}
+	80% {
+		@include transform(translate(-2.5px,0));	
+	}
+	90% {
+		@include transform(translate(5px,0));	
+	}
+}
+
+@include keyframes(tornadoi) {
+	0%, 100% {
+		@include transform(translate(0,0));
+	}
+	50% {
+		@include transform(translate(-5px,0));
+	}
+}
+
+@include keyframes(tornadoii) {
+	0%, 100% {
+		@include transform(translate(0,0));
+	}
+	50% {
+		@include transform(translate(-10px,0));
+	}
+}
+
+@include keyframes(tornadoiii) {
+	0%, 100% {
+		@include transform(translate(0,0));
+	}
+	50% {
+		@include transform(translate(-18px,0));
+	}
+}
+
+@include keyframes(tornadoiv) {
+	0%, 100% {
+		@include transform(translate(0,0));
+	}
+	50% {
+		@include transform(translate(-20px,0));
+	}
+}
+
+@include keyframes(tornadov) {
+	0%, 100% {
+		@include transform(translate(0,0));
+	}
+	50% {
+		@include transform(translate(-8px,0));
+	}
+}
+
+@include keyframes(thunderstorm) {
+	0%, 40%, 50%, 70%, 80%, 90%, 100% {
+		opacity: 1;
+	} 
+	5%, 10%, 15%, 20%, 25%, 30%, 35%, 45%, 
+	55%, 60%, 65%, 75%, 85%, 95% {
+		opacity: 0;
+	}
+}
