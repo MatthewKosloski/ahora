@@ -1,212 +1,36 @@
-/*******************************************************************************
- * CUSTOM RESETS && IMPORTS
- ******************************************************************************/
-@import "variables";
-
+@import "misc/variables";
 @import "./bower_components/bourbon/app/assets/stylesheets/bourbon";
 @import "./bower_components/normalize-scss/normalize";
-
-@import "reset";
-@import "mixins";
-@import "grid";
-@import "breakpoints";
-@import "modules/modules";
-@import "animate";
-
-/*******************************************************************************
- * AUTHOR'S BASE
- ******************************************************************************/
+@import "misc/breakpoints";
 
 html,
 body {
-    -moz-background: linear-gradient($topColor, $bottomColor);
-    background: linear-gradient($topColor, $bottomColor);
     background-attachment: fixed;
     color: $white;
-    font: 112.5%/1.5 "Open Sans", "Helvetica Neue", sans-serif;
-    // @include breakpoint(md) {font-size: 100%;}
-    // @include breakpoint(sm) {font-size: 90%;}
+    font: 112.5%/1.5 $avenirRegular;
+    @include breakpoint(md) {font-size: 120%;}
+    @include breakpoint(sm) {font-size: 100%;}
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-weight: normal;
 }
 
-/*******************************************************************************
- * ng-cloak
- ******************************************************************************/
-
-[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-  display: none !important;
-}
-
-/*******************************************************************************
- * AUTHOR'S STYLES
- ******************************************************************************/
-
-@include selection {
-	background-color: rgba(246,86,86,0.33);
-}
-
-.outer {
-	text-align: center;
-	white-space: nowrap;
-	height: 100%;
-	&::before {
-		content: '';
-		display: inline-block;
-		height: 100%;
-		vertical-align: middle;
-		margin-right: -0.25em; 
-	}
-}
-
-.inner {
-	display: inline-block;
-	vertical-align: middle;
-	padding: 100px 0;
-}
-
-.summary {
-	text-align: center;
-	h1 {
-		font-weight: 400;
-	}
-}
-
-.search {
-	display: none;
-	input {
-		background-color: transparent;
-    	border-bottom: 2px solid $white;
-    	padding: 0 0.5rem;
-    	text-align: center;
-    	color: $white;
-    	display: none;
-    	font-size: 50px;
-	}
-	div {
-		cursor: pointer;
-		margin-top: 55px;
-		display: none;
-		&:hover {
-			text-decoration: underline;
-		}
-	}
-}
-
-.data {
-	background-color: $white;
-	position: relative;
-	box-shadow: rgba(0,0,0,0.15) 0 0 50px;
-	color: #2c2c2c;
-    @include border-radius(8px);
-    max-width: 100%;
-    width: 555px;
-    padding: 30px;
-    margin: 112px 0 0 0;
-    @include animation-duration(0.50s);
-    // display: none;
-}
-
-.icon-span {
-    position: absolute;
-    top: 19px;
-    left: 50%;
- 	@include transform(translate(-50%,-50%));
-    background-color: $white;
-    @include border-radius(100%);
-    padding: 18px 0;
-    width: 80px;
-    height: 80px;
-    svg {
-    	margin: 0 auto;
-    	display: block;
-    	cursor: pointer;
-    	&:hover {
-    		path {
-    			fill: #cecccc;
-    		}
-    	}
-    }
-}
-
-.currently {
-	text-align: center;
-}
-
-.stats {
-	margin-top: -20px;
-}
-
-hr {
-	border-bottom: 1px solid #dbdbdb;
-    display: block;
-    width: 85%;
-    margin: 0 auto;
-    padding-top: 20px;
-}
-
-ul[class*="currently__"] li:first-child {
-	text-align: left;
-	color: #707070;
-	font-size: rem(12);
-	font-weight: 600;
-}
-
-ul[class*="currently__"] li:last-child {
-	text-align: left;
-	color: #2e2e2e;
-	font-size: rem(22);
-}
-
-.currently__temp {
-	font-size: rem(117);
-	font-weight: 400;
-	color: #2e2e2e;
-}
-
-.currently__low {
-	color: $neutralGray;
-}
-
-.day__high {
-	color: #2e2e2e;
-}
-
-.day__low {
-	color: #555;
-}
-
-.forecast {
-	text-align: center;
-	margin-top: 35px;
-}
-
-.day {
-	width: 20%;
-    float: left;
-    text-align: center;
-}
-
-.day__name {
-	text-transform: uppercase;
-	font-weight: 700;
-	font-size: rem(13);
-	color: #707070;
-}
-
-.day__icon {
-	margin: 0.6rem 0;
-	img {
-		vertical-align: middle;
-    	margin-top: -8px;
-	}
-}
-
-.day__temps {
-	font-size: rem(15);
-}
-
+@import "misc/fonts";
+@import "lib/climacons";
+@import "misc/reset";
+@import "misc/mixins";
+@import "lib/grid";
+@import "modules/modules";
+@import "lib/animate";
+@import "ngcloak";
+@import "gradients";
+@import "splashes";
+@import "valign";
+@import "search";
+@import "widget";
+@import "sections/main";
+@import "sections/forecast";
 @import "units";
 @import "loader";
+@import "keyframes";
 @import "animations";

@@ -10,14 +10,30 @@
 	}
 	label {
 		cursor: pointer;
-    	padding: 0 rem(12);
+    	padding: rem(10) rem(17);
 	}
 	li {
-		padding: 0.3125rem 0 0.37rem;
+		padding: rem(8) 0 rem(5);
+		@include breakpoint(md) { 
+			width: 50%;
+		}
+		width: 33.3333%;
 		float: left;
+		&:first-child {
+			border-right: 1px solid rgba(255,255,255,0.5);
+		}
 		&:last-child {
 			border-left: 1px solid rgba(255,255,255,0.5);
+			@include breakpoint(md) { 
+				display: none;
+			}
 		}
+	}
+	@include breakpoint(md) { 
+		top: 10px;
+		left: 10px;
+		z-index: 999;
+		width: 100px;
 	}
 }
 

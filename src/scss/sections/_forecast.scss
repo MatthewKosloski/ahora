@@ -1,0 +1,73 @@
+.forecast {
+	background-color: #2E3335;
+	-webkit-border-bottom-right-radius: 6px;
+	-webkit-border-bottom-left-radius: 6px;
+	-moz-border-radius-bottomright: 6px;
+	-moz-border-radius-bottomleft: 6px;
+	border-bottom-right-radius: 6px;
+	border-bottom-left-radius: 6px;
+	padding: 30px 15px;
+	span.climacon {
+		font-size: rem(52);
+		line-height: 0;
+	}
+	@include breakpoint(md) {
+		position: relative;
+		border-radius: 0;
+    	min-height: 25vh;
+    	padding: 0;
+	}
+}
+
+.forecast__inner {
+	@include breakpoint(md) {
+		@include transform(translate(-50%,-50%));
+		position: absolute;
+    	top: 50%;
+    	left: 50%;
+    	width: 100%;
+	}
+}
+
+.forecast__day {
+	width: 20%;
+	float: left;
+	display: inline-block;
+	&:nth-child(1) {
+		@include animation-delay(500ms);
+	}
+	&:nth-child(2) {
+		@include animation-delay(625ms);
+	}
+	&:nth-child(3) {
+		@include animation-delay(750ms);
+	}
+	&:nth-child(4) {
+		@include animation-delay(875ms);
+	}
+	&:nth-child(5) {
+		@include animation-delay(1s);
+	}
+}
+
+.forecast__day__name {
+	text-transform: uppercase;
+	font-family: $avenirBold;
+	font-size: rem(15);
+}
+
+.forecast__day__icon {
+	margin: 8px 0;
+	@include breakpoint(md) {
+		margin: 0;
+	}
+}
+
+.forecast__day__temperatures {
+	font-family: $avenirMedium;
+	font-size: rem(15);
+}
+
+.day.low {
+	color: #999;
+}

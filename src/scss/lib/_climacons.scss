@@ -1,0 +1,91 @@
+@font-face {
+	font-family: 'Climacons-Font';
+	src:url('../fonts/climacons/climacons.eot');
+	src:url('../fonts/climacons/climacons.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/climacons/climacons.svg#Climacons-Font') format('svg'),
+		url('../fonts/climacons/climacons.woff') format('woff'),
+		url('../fonts/climacons/climacons.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+.climacon:before{
+	font-family: 'Climacons-Font';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+}
+
+.climacon.thermometer.empty:before,
+.climacon.thermometer:before {
+	content: "\e038";
+}
+.climacon.thermometer.low:before {
+	content: "\e039";
+}
+.climacon.thermometer.medium-low:before {
+	content: "\e03a";
+}
+.climacon.thermometer.medium-high:before {
+	content: "\e03b";
+}
+.climacon.thermometer.high:before {
+	content: "\e03c";
+}
+.climacon.thermometer.full:before {
+	content: "\e03d";
+}
+
+.climacon.clear-day:before {
+	content: "\e028";
+}
+
+.climacon.clear-night:before {
+	content: "\e02d";
+}
+
+.climacon.cloudy:before {
+	content: "\e000";
+}
+
+.climacon.fog:before {
+	content: "\e01e";
+}
+
+.climacon.partly-cloudy-day:before {
+	content: "\e001";
+}
+
+.climacon.partly-cloudy-night:before {
+	content: "\e002";
+}
+
+.climacon.sleet:before,
+.climacon.hail:before {
+	content: "\e00f";
+}
+
+.climacon.rain:before {
+	content: "\e006";
+}
+
+.climacon.snow:before {
+	content: "\e018";
+}
+
+.climacon.thunderstorm:before {
+	content: "\e025";
+}
+
+.climacon.tornado:before {
+	content: "\e037";
+}
+
+.climacon.wind:before {
+	content: "\e021";
+}
+
+.climacon.umbrella:before {
+	content: "\e045";
+}

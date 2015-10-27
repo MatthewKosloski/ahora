@@ -1,0 +1,31 @@
+.search {
+	display: none;
+	@include breakpoint(sm) {
+		@include transform(translate(-50%,-50%));
+    	position: absolute;
+    	top: 50%;
+    	left: 50%;
+    	width: 90%;
+	}
+	input {
+		background-color: transparent;
+    	border-bottom: 2px solid $white;
+    	padding: 0 0.5rem;
+    	text-align: center;
+    	color: $white;
+    	display: none;
+    	font-size: rem(40);
+    	@include breakpoint(sm) {
+    		font-size: rem(20);
+    	}
+    	width: 100%;
+	}
+	div {
+		cursor: pointer;
+		margin-top: 55px;
+		display: none;
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}

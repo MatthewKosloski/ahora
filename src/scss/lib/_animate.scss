@@ -167,38 +167,38 @@ Copyright (c) 2015 Daniel Eden
 
 @-webkit-keyframes rubberBand {
   from {
-    -webkit-transform: scale3d(1, 1, 1);
-    transform: scale3d(1, 1, 1);
+    -webkit-transform: scale3d(1, 1, 1) translate(-50%, -50%);
+    transform: scale3d(1, 1, 1) translate(-50%, -50%);
   }
 
   30% {
-    -webkit-transform: scale3d(1.25, 0.75, 1);
-    transform: scale3d(1.25, 0.75, 1);
+    -webkit-transform: scale3d(1.25, 0.75, 1) translate(-50%, -50%);
+    transform: scale3d(1.25, 0.75, 1) translate(-50%, -50%);
   }
 
   40% {
-    -webkit-transform: scale3d(0.75, 1.25, 1);
-    transform: scale3d(0.75, 1.25, 1);
+    -webkit-transform: scale3d(0.75, 1.25, 1) translate(-50%, -50%);
+    transform: scale3d(0.75, 1.25, 1) translate(-50%, -50%);
   }
 
   50% {
-    -webkit-transform: scale3d(1.15, 0.85, 1);
-    transform: scale3d(1.15, 0.85, 1);
+    -webkit-transform: scale3d(1.15, 0.85, 1) translate(-50%, -50%);
+    transform: scale3d(1.15, 0.85, 1) translate(-50%, -50%);
   }
 
   65% {
-    -webkit-transform: scale3d(.95, 1.05, 1);
-    transform: scale3d(.95, 1.05, 1);
+    -webkit-transform: scale3d(.95, 1.05, 1) translate(-50%, -50%);
+    transform: scale3d(.95, 1.05, 1) translate(-50%, -50%);
   }
 
   75% {
-    -webkit-transform: scale3d(1.05, .95, 1);
-    transform: scale3d(1.05, .95, 1);
+    -webkit-transform: scale3d(1.05, .95, 1) translate(-50%, -50%);
+    transform: scale3d(1.05, .95, 1) translate(-50%, -50%);
   }
 
   to {
-    -webkit-transform: scale3d(1, 1, 1);
-    transform: scale3d(1, 1, 1);
+    -webkit-transform: scale3d(1, 1, 1) translate(-50%, -50%);
+    transform: scale3d(1, 1, 1) translate(-50%, -50%);
   }
 }
 

@@ -1,278 +1,102 @@
-/* 1,6,11,5,10,4,9,2,7, */
-.clear-day {
-	@include animation(clearDay 15s linear infinite both);
-	g path {
-		@include transform-origin(center);
-		&:nth-child(1), &:nth-child(2), &:nth-child(5), &:nth-child(6), &:nth-child(9), &:nth-child(10){
-			@include animation(scale 5s ease-in-out infinite backwards);
-		}
-		&:nth-child(3), &:nth-child(4), &:nth-child(7), &:nth-child(8), &:nth-child(11), &:nth-child(12) {
-			@include animation(scale 3s ease-in-out infinite backwards);
-		}
-	}
+/* uncss:ignore */
+.main__icon .clear-day {
+	@include animation(clearDay 18s linear infinite both);
 }
-
-@include keyframes(clearDay) {
-	0% {
-		@include transform(rotate(0deg));
-	}
-	100% {
-		@include transform(rotate(360deg));
-	}
-}
-
-.clear-night {
-	@include animation(clearNight 5s ease-in-out infinite both);
-}
-
-@include keyframes(clearNight) {
-	0% {
-		@include transform(rotate(0deg));
-	}
-	50% {
-		@include transform(rotate(-15deg));
-	}
-	100% {
-		@include transform(rotate(0deg));
-	}
-}
-
-.rain g path {
-	&:nth-child(1) {
-		@include animation(raini 1.2s cubic-bezier(0.22, 0.61, 0.36, 1) infinite);
-		opacity: 0;	
-	}
-	&:nth-child(2) {
-		@include animation(rainii 1.2s cubic-bezier(0.22, 0.61, 0.36, 1) infinite);
-		opacity: 0;	
-	}
-	&:nth-child(3) {
-		@include animation(rainiii 1.2s cubic-bezier(0.22, 0.61, 0.36, 1) infinite);
-		opacity: 0;	
-	}
-}
-
-@include keyframes(raini) {
-	0%, 100% {
-		opacity: 0;
-	}
-	0% {
-		@include transform(translate(6px,-6px));
-	}
-	25%, 50%, 75% {
-		opacity: 1;
-	}
-	100% {
-		@include transform(translate(0px,0px));	
-	}
-}
-
-@include keyframes(rainii) {
-	0%, 25%, 100% {
-		opacity: 0;
-	}
-	25% {
-		@include transform(translate(6px,-6px));
-	}
-	50%, 75% {
-		opacity: 1;
-	}
-	100% {
-		@include transform(translate(0px,0px));	
-	}
-}
-
-@include keyframes(rainiii) {
-	0%, 25%, 50%, 100% {
-		opacity: 0;
-	}
-	50% {
-		@include transform(translate(6px,-6px));
-	}
-	75% {
-		opacity: 1;
-	}
-	100% {
-		@include transform(translate(0px,0px));	
-	}
-}
-
-.partly-cloudy-day g path {
+/* uncss:ignore */
+.main__icon .clear-day .rays path {
 	@include transform-origin(center);
-		&:nth-child(1), &:nth-child(3), &:nth-child(5) {
-			@include animation(scale 3s ease-in-out infinite backwards);
-		} 
-		&:nth-child(2), &:nth-child(4), &:nth-child(6) {
-			@include animation(scale 5s ease-in-out infinite backwards);
-		}
 }
-
-@include keyframes(scale) {
-	0%, 100% {
-		@include transform(scale(0.5,0.5));
-	}
-	50% {
-		@include transform(scale(1,1));
-	}
+/* uncss:ignore */
+.main__icon .clear-day .rays path:nth-child(even) {
+	@include animation(scale 3s ease-in-out infinite backwards);
 }
-
-.partly-cloudy-night path {
+/* uncss:ignore */
+.main__icon .clear-day .rays path:nth-child(odd) {
+	@include animation(scale 3s ease-in-out infinite backwards);
+}
+/* uncss:ignore */
+.main__icon .clear-day .rays path:nth-child(odd) {
+	@include animation-delay(4.5s);
+}
+/* uncss:ignore */
+.main__icon .clear-night {
+	@include animation(slightRotate 8s linear infinite both);
+}
+/* uncss:ignore */
+.main__icon .cloudy {
+	@include animation(cloudy 10s linear infinite both);
+}
+/* uncss:ignore */
+.main__icon .fog path:nth-child(even) {
+	@include animation(fog 8s ease-in-out infinite backwards);
+}
+/* uncss:ignore */
+.main__icon .fog path:nth-child(odd) {
+	@include animation(fog 8s ease-in-out infinite backwards);
+	@include animation-delay(4s);
+}
+/* uncss:ignore */
+.main__icon .partly-cloudy-day .rays path {
 	@include transform-origin(center);
-	&:nth-child(1) {
-		@include animation(partlyCloudyNight 5s ease-in-out infinite both);
-	}
 }
-
-@include keyframes(partlyCloudyNight) {
-	0% {
-		@include transform(rotate(0deg));
-	}
-	50% {
-		@include transform(rotate(-4deg));
-	}
-	100% {
-		@include transform(rotate(0deg));
-	}
+/* uncss:ignore */
+.main__icon .partly-cloudy-day .rays path:nth-child(even) {
+	@include animation(scale 3s ease-in-out infinite backwards);
 }
-
-.snow path {
-	@include transform-origin(center);
-	&:nth-child(1), &:nth-child(3), &:nth-child(5) {
-		@include animation(scale 5s ease-in-out infinite backwards);
-	}
-	&:nth-child(2), &:nth-child(4) {
-		@include animation(scale 3s ease-in-out infinite backwards);
-	}
+/* uncss:ignore */
+.main__icon .partly-cloudy-day .rays path:nth-child(odd) {
+	@include animation(scale 6s ease-in-out infinite backwards);
 }
-
-.sleet path,
-.hail path {
-	@include transform-origin(center);
-	&:nth-child(1) {
-		@include animation(haili 1.5s ease-in-out infinite backwards);
-	}
-	&:nth-child(5) {
-		@include animation(hailii 1.5s ease-in-out infinite backwards);	
-	}
-	&:nth-child(2) {
-		@include animation(hailii 1.5s ease-in-out infinite backwards);
-	}
-	&:nth-child(4) {
-		@include animation(hailiv 1.5s ease-in-out infinite backwards);
-	}
-	&:nth-child(3) {
-		@include animation(hailv 1.5s ease-in-out infinite backwards);
-	}
+/* uncss:ignore */
+.main__icon .rain .drops path:nth-child(1) {
+	@include animation(raini 1.5s ease-in-out infinite);
+	@include animation-delay(2.5s);
+	opacity: 0;
 }
-
-@include keyframes(haili) {
-	0% {
-		opacity: 0;
-		@include transform(translate(0,-5px));
-	}
-	30% {
-		@include transform(translate(0,1px));
-	}
-	40%, 50%, 60%, 70%, 80%, 90% {
-		opacity: 1;
-	}
-	100% {
-		@include transform(translate(0,0));
-	}
+/* uncss:ignore */
+.main__icon .rain .drops path:nth-child(2) {
+	@include animation(rainii 1.5s ease-in-out infinite);
+	opacity: 0;
 }
-
-@include keyframes(hailii) {
-	0%, 30%, 40%  {
-		opacity: 0;
-	}
-	50%, 60%, 70%, 80%, 90% {
-		opacity: 1;
-	}
-	30% {
-		@include transform(translate(0,-5px));
-	}
-	60% {
-		@include transform(translate(0,1px));
-	}
-	100% {
-		@include transform(translate(0,0));
-	}
+/* uncss:ignore */
+.main__icon .rain .drops path:nth-child(3) {
+	@include animation(raini 1.5s ease-in-out infinite);
+	@include animation-delay(3.5s); 
+	opacity: 0;
 }
-
-@include keyframes(hailiii) {
-	0%, 30%, 40%, 50% {
-		opacity: 0;
-	}
-	60%, 70%, 80%, 90% {
-		opacity: 1;
-	}
-	40% {
-		@include transform(translate(0,-5px));
-	}
-	70% {
-		@include transform(translate(0,1px));
-	}
-	100% {
-		@include transform(translate(0,0));
-	}
+/* uncss:ignore */
+.main__icon .wind path:first-child {
+	@include animation(windi 5s ease-in-out infinite);
 }
-
-@include keyframes(hailiv) {
-	0%, 30%, 40%, 50%, 60% {
-		opacity: 0;
-	}
-	50% {
-		@include transform(translate(0,-5px));
-	}
-	80% {
-		@include transform(translate(0,1px));
-		opacity: 1;
-	}
-	90% {
-		opacity: 1;
-	}
-	100% {
-		@include transform(translate(0,0));
-	}
+/* uncss:ignore */
+.main__icon .wind path:last-child {
+	@include animation(windii 5s ease-in-out infinite);
 }
-
-@include keyframes(hailv) {
-	0%, 30%, 40%, 50%, 60%, 70% {
-		opacity: 0;
-	}
-	60% {
-		@include transform(translate(0,-5px));
-	}
-	90% {
-		@include transform(translate(0,1px));
-		opacity: 1;
-	}
-	100% {
-		@include transform(translate(0,0));
-	}
+/* uncss:ignore */
+.main__icon .tornado path:nth-child(1) {
+	@include animation(tornadoi 10s ease-in-out infinite);
 }
-
-.thunderstorm polyline {
-	@include transform-origin(center);
-	&:nth-child(1) {
-		@include animation(thunderstorm 3.5s ease-in-out infinite backwards);
-	}
+/* uncss:ignore */
+.main__icon .tornado path:nth-child(2) {
+	@include animation(tornadoii 10s ease-in-out infinite);
 }
-
-@include keyframes(thunderstorm) {
-	0%, 35%, 50%, 100% {
-		opacity: 0;
-	}
-	33%, 40%, 55%, 90% {
-		opacity: 1;
-	}
-	0% {
-		@include transform(translate(0,-2px) scale(0.8,0.8));
-	}
-	33% {
-		@include transform(translate(0,1px) scale(1.1,1.1));
-	}
-	90% {
-		@include transform(translate(0,0) scale(1,1));
-	}
+/* uncss:ignore */
+.main__icon .tornado path:nth-child(3) {
+	@include animation(tornadoiii 10s ease-in-out infinite);
+}
+/* uncss:ignore */
+.main__icon .tornado path:nth-child(4) {
+	@include animation(tornadoiv 10s ease-in-out infinite);
+}
+/* uncss:ignore */
+.main__icon .tornado path:nth-child(5) {
+	@include animation(tornadov 10s ease-in-out infinite);
+}
+/* uncss:ignore */
+.main__icon .thunderstorm path:nth-child(2) {
+	@include animation(thunderstorm 10s linear infinite);
+}
+/* uncss:ignore */
+.main__icon .snow .snowflake {
+	@include animation(raini 4s ease-in-out infinite);
 }
