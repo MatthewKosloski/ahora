@@ -6,17 +6,15 @@
 		        link: function ($scope, element, attrs) {
 		        	var searchCancel = $("#search__cancel"),
 						searchBar = $(".search__input"),
-						data = $(".data"),
-						search = $(".search"),
-						summary = $(".summary");
+						widget = $(".widget"),
+						search = $(".search");
 
 					element.bind("click", function(){
 						$(search).show();
 						$(searchBar).val("");
-						$(summary).css({"visibility":"hidden"}).fadeOut(500);
-						$(data).addClass(animations.data.exit);
+						$(widget).addClass(animations.widget.exit);
 						setTimeout(function(){
-							$(data).removeClass(animations.data.exit).hide();
+							$(widget).removeClass(animations.widget.exit).hide();
 						}, 500);
 						setTimeout(function(){
 							$(searchBar).addClass(animations.searchBar.enter).show().focus();
