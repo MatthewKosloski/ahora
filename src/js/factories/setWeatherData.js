@@ -11,17 +11,7 @@
 					currently = data.currently,
 					daily = data.daily.data,
 					tomorrow = daily[0];
-				var prefix, summary = (currently.summary).toLowerCase();
-				if( /rain|sleet|snow|wind|precipitation|(fog)(?!gy)|humidity/i.test(summary) ) {
-					prefix = "there\'s";
-				} else if(/overcast/i.test(summary)){
-					prefix = "there\'s an";
-				} else if(/drizzle/i.test(summary)){
-					prefix = "there\'s a";
-				} else {
-					prefix = "it\'s";
-				}
-				obj.summary = prefix + " " + summary;
+
 				obj.icon = currently.icon;
 				obj.temperature = Math.round(currently.temperature);
 				obj.low = Math.round(tomorrow.temperatureMin);
@@ -29,6 +19,7 @@
 				obj.wind = Math.round(currently.windSpeed) + " " + "mph";
 				obj.rain = Math.round(currently.precipProbability * 100);
 				obj.humidity = Math.round(currently.humidity * 100);
+				
 				for(var i = 1; i <= 5; i++) {
 			 		obj.forecast.push(
 					    {
