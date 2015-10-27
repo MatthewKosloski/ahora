@@ -7,19 +7,16 @@
 		.factory("animations", function(){
 			return {
 				searchBar : {
-					enter : "animated bounceIn",
-					exit : "animated bounceOut"
+					enter : "animated fadeInUp",
+					exit : "animated fadeOutDown"
 				},
-				data : {
-					enter : "animated bounceIn",
+				widget : {
+					enter : "animated fadeInDown",
 					exit : "animated fadeOutUp"
 				},
 				searchCancel : {
 					enter : "animated flash",
 					exit : "animated flash"
-				},
-				summary : {
-					enter : "animated fadeInDown"
 				}
 			};
 		});
