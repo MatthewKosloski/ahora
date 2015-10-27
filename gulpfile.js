@@ -6,21 +6,20 @@ var gulp = require("gulp"),
     concat = require("gulp-concat"),
     bower = require("gulp-bower"),
     minifyCss = require("gulp-minify-css"),
-    // sourcemaps = require("gulp-sourcemaps"),
     uncss = require('gulp-uncss'),
     rename = require("gulp-rename");
 
 var paths = {
   unCSS: {
     ignore: [
-      ".main__icon .rain .drops path:nth-child(1)", ".main__icon .rain .drops path:nth-child(2)", ".main__icon .rain .drops path:nth-child(3)",".fadeInUp",
-      ".fadeOutDown",".default-gradient", ".default-splash", ".night-gradient", ".night-splash", ".day-gradient", "day-splash", ".rain-gradient", 
-      ".rain-splash", ".sunny-gradient", ".sunny-splash", ".forecast__day:nth-child(1)",".forecast__day:nth-child(2)",".forecast__day:nth-child(3)", 
-      ".forecast__day:nth-child(4)", ".forecast__day:nth-child(5)", ".animated", ".bounceIn", ".bounceOut", ".fadeOutUp", ".flash", ".fadeInDown", ".active", ".climacon", 
-      ".climacon.thermometer", ".climacon.thermometer.low", ".climacon.thermometer.medium-low", ".climacon.thermometer.medium-high", ".climacon.thermometer.high", 
-      ".climacon.thermometer.full", ".climacon.clear-day", ".climacon.clear-night", ".climacon.cloudy", ".climacon.fog", ".climacon.partly-cloudy-day", 
-      ".climacon.partly-cloudy-night", ".climacon.sleet", ".climacon.hail", ".climacon.rain", ".climacon.snow", ".climacon.thunderstorm", ".climacon.tornado", ".climacon.wind", 
-      ".climacon.umbrella"
+      /\.climacon.*/, 
+      /(?:\.\w*)-(splash|gradient)/, 
+      /\.forecast__day:nth-child\(\d\)/, 
+      /\.fade(In|Out)(Up|Down)/, 
+      /\.bounce(In|Out)/, 
+      ".animated",
+      ".flash", 
+      ".active" 
     ],
     src: {
       html: ["./assets/**/*.html","./src/*.html"],
@@ -105,9 +104,7 @@ gulp.task("minifyHTML", function() {
 // sass => css
 gulp.task("sassToCSS", function() {
   return gulp.src(paths.sassToCSS.src)
-    // .pipe(sourcemaps.init())
     .pipe(sass().on("error", sass.logError))
-    // .pipe(sourcemaps.write())
     .pipe(gulp.dest(paths.sassToCSS.dest));
 });
 
@@ -129,9 +126,7 @@ gulp.task("minifyCSS", ["sassToCSS", "unCSS"], function() {
 // concat javascript
 gulp.task("concatJS", function() {
   return gulp.src(paths.js.src)
-    // .pipe(sourcemaps.init())
     .pipe(concat(paths.concatJS.concat))
-    // .pipe(sourcemaps.write())
     .pipe(gulp.dest(paths.js.dest));
 });
 
