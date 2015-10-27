@@ -84,6 +84,34 @@
 					localStorageService.set("ahoraUserUnit", "celcius");
 				} else if(unit === "f") {
 					localStorageService.set("ahoraUserUnit", "fahrenheit");
+				} else if(unit === "k") {
+					localStorageService.set("ahoraUserUnit", "kelvin");
+				}
+			};
+			$scope.setColors = function(arg){
+				if($scope.icon === "clear-night" || $scope.icon === "partly-cloudy-night" && $scope.temperature >= 32 && $scope.temperature < 80) {
+					$scope.splashColor = "#5B4ACF";
+					return "night-" + arg;
+				} else if($scope.icon === "clear-day" && $scope.temperature >= 80){
+					$scope.splashColor = "#FB5650";
+					return "sunny-" + arg;
+				} else if($scope.icon === "rain" || $scope.icon === "hail" || $scope.icon === "sleet" || $scope.icon === "snow" || $scope.temperature < 32) {
+					$scope.splashColor = "#3081FF";
+					return "rain-" + arg; 
+				} else {
+					$scope.splashColor = "#0087C4";
+					return "default-" + arg; 
+				}
+			};
+			$scope.setThermometer = function(){
+				if($scope.temperature <= 32) {
+					return "low";
+				} else if($scope.temperature > 32 && $scope.temperature < 50){
+					return "medium-low";
+				} else if($scope.temperature >= 50 && $scope.temperature < 80){
+					return "medium-high";
+				} else if($scope.temperature >= 80){
+					return "high";
 				}
 			};
 		}]);
