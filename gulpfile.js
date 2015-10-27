@@ -12,10 +12,16 @@ var gulp = require("gulp"),
 
 var paths = {
   unCSS: {
-    /*
-      Ignore these classes (found in animations.js factory)
-    */
-    ignore: [".animated", ".bounceIn", ".bounceOut", ".fadeOutUp", ".flash", ".fadeInDown", ".active"],
+    ignore: [
+      ".main__icon .rain .drops path:nth-child(1)", ".main__icon .rain .drops path:nth-child(2)", ".main__icon .rain .drops path:nth-child(3)",".fadeInUp",
+      ".fadeOutDown",".default-gradient", ".default-splash", ".night-gradient", ".night-splash", ".day-gradient", "day-splash", ".rain-gradient", 
+      ".rain-splash", ".sunny-gradient", ".sunny-splash", ".forecast__day:nth-child(1)",".forecast__day:nth-child(2)",".forecast__day:nth-child(3)", 
+      ".forecast__day:nth-child(4)", ".forecast__day:nth-child(5)", ".animated", ".bounceIn", ".bounceOut", ".fadeOutUp", ".flash", ".fadeInDown", ".active", ".climacon", 
+      ".climacon.thermometer", ".climacon.thermometer.low", ".climacon.thermometer.medium-low", ".climacon.thermometer.medium-high", ".climacon.thermometer.high", 
+      ".climacon.thermometer.full", ".climacon.clear-day", ".climacon.clear-night", ".climacon.cloudy", ".climacon.fog", ".climacon.partly-cloudy-day", 
+      ".climacon.partly-cloudy-night", ".climacon.sleet", ".climacon.hail", ".climacon.rain", ".climacon.snow", ".climacon.thunderstorm", ".climacon.tornado", ".climacon.wind", 
+      ".climacon.umbrella"
+    ],
     src: {
       html: ["./assets/**/*.html","./src/*.html"],
       css: "./www/css/style.css"
@@ -53,7 +59,7 @@ var paths = {
     dest: "./www/css",
     watch: [
       "./src/scss/*.scss", 
-      "./src/scss/_*.scss"
+      "./src/scss/**/_*.scss"
     ]
   },
   js: {
@@ -139,6 +145,7 @@ gulp.task("uglifyJS", ["concatJS"], function() {
 
 // watch for changes
 gulp.task("watch", function() {
+  gulp.watch(paths.moveAssets.src, ["moveAssets"]);
   gulp.watch(paths.html.src, ["minifyHTML"]);
   gulp.watch(paths.scss.watch, ["minifyCSS"]);
   gulp.watch(paths.js.src, ["concatJS"]);
