@@ -19,6 +19,24 @@
 	}
 }
 
+.forecast--sunny {
+	background-color: #fff;
+	li {
+		&:first-child {
+			color: #494949;
+		}
+		&:nth-child(2) {
+			color: #9a9a9a;
+		}
+	}
+	.day.high {
+		color: #4a4a4a;
+	}
+	.day.low {
+		color: #9a9a9a;
+	}
+}
+
 .forecast__inner {
 	@include breakpoint(md) {
 		@include transform(translate(-50%,-50%));
