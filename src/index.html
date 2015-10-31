@@ -39,17 +39,17 @@
                     <div class="loader" ng-hide="dataLoaded || err"></div>
                     <div ng-show="dataLoaded">
                         <ul class="units cf animated fadeIn">
+                            <li ng-class="{'active':showTwentyFour}" class="hide-on-mobile">
+                                <label for="twentyFour">24 Clock</label>
+                                <input type="checkbox" id="twentyFour" ng-model="showTwentyFour" ng-click="setLocalStorage('ahoraTimeUnit',showTwentyFour)">
+                            </li>
                             <li ng-class="{'active':unit=='celcius'}">
                                 <label for="celcius">&deg;C</label>
-                                <input type="radio" id="celcius" name="unit" ng-model="unit" value="celcius" ng-change="unit='celcius'" ng-click="setLocalUnit('c')">
+                                <input type="radio" id="celcius" name="unit" ng-model="unit" value="celcius" ng-change="unit='celcius'" ng-click="setLocalStorage('ahoraUserUnit','celcius')">
                             </li>
                             <li ng-class="{'active':unit=='fahrenheit'}">
                                 <label for="fahrenheit">&deg;F</label>
-                                <input type="radio" id="fahrenheit" name="unit" ng-model="unit" value="fahrenheit" ng-change="unit='fahrenheit'" ng-click="setLocalUnit('f')">
-                            </li>
-                            <li ng-class="{'active':unit=='kelvin'}">
-                                <label for="kelvin">&deg;K</label>
-                                <input type="radio" id="kelvin" name="unit" ng-model="unit" value="kelvin" ng-change="unit='kelvin'" ng-click="setLocalUnit('k')">
+                                <input type="radio" id="fahrenheit" name="unit" ng-model="unit" value="fahrenheit" ng-change="unit='fahrenheit'" ng-click="setLocalStorage('ahoraUserUnit','fahrenheit')">
                             </li>
                         </ul>
                         <div class="search">
@@ -62,7 +62,7 @@
                             <section class="main" ng-class="setColors('splash')" ahora-stats>
                                 <svg ahora-search-event id="icon" class="main__search" width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><title>Search</title><path d="M10.887 9.473C11.585 8.493 12 7.295 12 6c0-3.314-2.687-6-6-6-3.314 0-6 2.686-6 6 0 3.313 2.686 6 6 6 1.295 0 2.492-.415 3.473-1.113l4.82 4.82c.39.39 1.023.39 1.414 0 .39-.39.39-1.023 0-1.414l-4.82-4.82zM9.435 8.02c-.346.585-.83 1.07-1.415 1.415C7.425 9.785 6.74 10 6 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4c0 .74-.215 1.425-.565 2.02z" fill="#fff" fill-rule="evenodd"/></svg>
                                 <div class="main__content">
-                                    <h1 class="main__location animated fadeIn">{{city}}</h1>
+                                    <h1 class="main__location animated fadeIn">{{city}} <span class="hide-on-mobile">at {{theTime | clock:showTwentyFour}}</span></h1>
                                     <div class="main__icon animated fadeIn" ng-include="getInclude()"></div>
                                     <div class="main__temperature animated fadeIn">{{temperature | temperature:unit}}&deg;</div>
                                 </div>
@@ -81,7 +81,7 @@
                                     </ul>
                                 </div>
                             </section>
-                            <section class="forecast cf">
+                            <section class="forecast cf" ng-class="{'forecast--sunny':setColors('gradient') == 'sunny-gradient'}">
                                 <div class="forecast__inner">
                                     <div class="forecast__day cf animated fadeIn" ng-repeat="day in forecast">
                                         <ul>
