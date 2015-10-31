@@ -1,39 +1,53 @@
 .units {
-	position: absolute;
-	top: 20px;
-	right: 20px;
 	font-size: rem(14);
-	border: 1px solid rgba(255,255,255,0.5);
-	@include border-radius(2px);
+	position: absolute;
+    top: 20px;
+    right: 20px;
+	li {
+		padding: rem(8) 0 rem(5);
+		float: left;
+	}
 	input {
 		display: none;
 	}
 	label {
 		cursor: pointer;
-    	padding: rem(10) rem(17);
-	}
-	li {
-		padding: rem(8) 0 rem(5);
-		@include breakpoint(md) { 
-			width: 50%;
-		}
-		width: 33.3333%;
-		float: left;
-		&:first-child {
-			border-right: 1px solid rgba(255,255,255,0.5);
-		}
-		&:last-child {
-			border-left: 1px solid rgba(255,255,255,0.5);
-			@include breakpoint(md) { 
-				display: none;
-			}
-		}
+    	display: block;
+    	padding: 0 20px;
+    	@include breakpoint(sm) {
+    		padding: 0 15px;
+    	}
 	}
 	@include breakpoint(md) { 
 		top: 10px;
 		left: 10px;
 		z-index: 999;
-		width: 100px;
+	}
+	li {
+		&:first-child {
+			margin-right: 15px;
+			border: 1px solid rgba(255,255,255,0.50);
+			@include border-radius(2px);
+		}
+		&:nth-child(2) {
+			-webkit-border-top-left-radius: 2px;
+			-webkit-border-bottom-left-radius: 2px;
+			-moz-border-radius-topleft: 2px;
+			-moz-border-radius-bottomleft: 2px;
+			border-top-left-radius: 2px;
+			border-bottom-left-radius: 2px;
+			border: 1px solid rgba(255,255,255,0.50);
+			border-right: none;
+		}
+		&:last-child {
+			-webkit-border-top-right-radius: 2px;
+			-webkit-border-bottom-right-radius: 2px;
+			-moz-border-radius-topright: 2px;
+			-moz-border-radius-bottomright: 2px;
+			border-top-right-radius: 2px;
+			border-bottom-right-radius: 2px;
+			border: 1px solid rgba(255,255,255,0.50);
+		}
 	}
 }
 
