@@ -16,7 +16,7 @@
     	display: none;
     	font-size: rem(40);
     	@include breakpoint(sm) {
-    		font-size: rem(20);
+    		font-size: 2rem;
     	}
     	width: 100%;
 	}
