@@ -3,7 +3,7 @@
 		.directive("ahoraStats", ["animations", function(animations){
 		    return {
 		    	restrict : "A",
-		        link: function ($scope, element, attrs) {
+		        link: function (element) {
 		        	var mainContent = $(".main__content"),
 						mainStats = $(".main__stats"),
 						duration = 250;
