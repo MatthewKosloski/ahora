@@ -12,6 +12,11 @@
 					daily = data.daily.data,
 					tomorrow = daily[0];
 
+				var date = new Date(), utc = date.getTime() + (date.getTimezoneOffset() * 60000);
+				var timeFromOffset = new Date(utc + (3600000 * data.offset));
+				var hours = timeFromOffset.getHours(), minutes = timeFromOffset.getMinutes();
+				var formattedMinutes = (parseInt(minutes) < 10) ? "0" + minutes : minutes;
+
 				obj.icon = currently.icon;
 				obj.temperature = Math.round(currently.temperature);
 				obj.low = Math.round(tomorrow.temperatureMin);
@@ -19,6 +24,8 @@
 				obj.wind = Math.round(currently.windSpeed) + " " + "mph";
 				obj.rain = Math.round(currently.precipProbability * 100);
 				obj.humidity = Math.round(currently.humidity * 100);
+				obj.theTime = hours + ":" + formattedMinutes;
+				obj.hour = hours;
 				
 				for(var i = 1; i <= 5; i++) {
 			 		obj.forecast.push(
