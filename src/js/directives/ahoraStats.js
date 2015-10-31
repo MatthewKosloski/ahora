@@ -1,9 +1,9 @@
 (function(){
 	angular.module("directives")
-		.directive("ahoraStats", ["animations", function(animations){
+		.directive("ahoraStats", function(){
 		    return {
 		    	restrict : "A",
-		        link: function (element) {
+		        link: function (scope, element, attrs) {
 		        	var mainContent = $(".main__content"),
 						mainStats = $(".main__stats"),
 						duration = 250;
@@ -19,5 +19,5 @@
 					});
 		        }
 		    };
-		}]);
+		});
 })();

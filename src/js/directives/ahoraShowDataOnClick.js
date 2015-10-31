@@ -3,7 +3,7 @@
 		.directive("ahoraShowDataOnClick", ["animations", function(animations){
 		    return {
 		    	restrict : "A",
-		        link: function(element) {
+		        link: function(scope, element, attrs) {
 		        	var searchCancel = $("#search__cancel"),
 						searchBar = $(".search__input"),
 						widget = $(".widget"),
