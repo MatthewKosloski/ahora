@@ -34,3 +34,9 @@ body {
 @import "loader";
 @import "keyframes";
 @import "animations";
+
+.hide-on-mobile {
+	@include breakpoint(sm) {
+		display: none;
+	}
+}
