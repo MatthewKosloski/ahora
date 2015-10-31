@@ -15,8 +15,10 @@ var paths = {
       /\.climacon.*/, 
       /(?:\.\w*)-(splash|gradient)/, 
       /\.forecast__day:nth-child\(\d\)/, 
-      /\.fade(In|Out)(Up|Down)/, 
-      /\.bounce(In|Out)/, 
+      /\.fade(In|Out)(Up|Down)/,
+      /\.bounce(In|Out)/,
+      /\.forecast--sunny/,
+      /\.hide-on-\w*/, 
       ".animated",
       ".flash", 
       ".active" 
@@ -147,5 +149,5 @@ gulp.task("watch", function() {
 });
 
 // The default task (called when you run `gulp` from cli)
-gulp.task("build", ["moveAssets", "bower", "minifyHTML", "sassToCSS", "unCSS", "minifyCSS", "concatJS", "uglifyJS"]); /*compresses html, css, js*/
-gulp.task("default", ["moveAssets", "bower", "moveHTML", "sassToCSS", "unCSS", "concatJS", "watch"]);
+gulp.task("build", ["moveAssets", "bower", "minifyHTML", "minifyCSS", "concatJS", "uglifyJS"]); /*compresses html, css, js*/
+gulp.task("default", ["moveAssets", "bower", "moveHTML", "unCSS", "concatJS", "watch"]);
