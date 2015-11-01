@@ -52,19 +52,19 @@
 	float: left;
 	display: inline-block;
 	&:nth-child(1) {
-		@include animation-delay(500ms);
+		@include animation-delay(1s);
 	}
 	&:nth-child(2) {
-		@include animation-delay(625ms);
+		@include animation-delay(1.125s);
 	}
 	&:nth-child(3) {
-		@include animation-delay(750ms);
+		@include animation-delay(1.250s);
 	}
 	&:nth-child(4) {
-		@include animation-delay(875ms);
+		@include animation-delay(1.375s);
 	}
 	&:nth-child(5) {
-		@include animation-delay(1s);
+		@include animation-delay(1.5s);
 	}
 }
 

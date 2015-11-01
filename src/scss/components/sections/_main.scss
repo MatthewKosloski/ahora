@@ -34,24 +34,16 @@
 	}
 }
 
-.main__location {
-	font-size: rem(18);
-	font-family: $avenirMedium;
-	@include animation-delay(125ms);
-}
-
 .main__icon {
 	@include breakpoint(md) {
 		margin: 15px 0;
 	}
 	margin: 25px 0;
-	@include animation-delay(250ms);
 }
 
 .main__temperature {
 	font-size: rem(24);
 	font-family: $avenirMedium;
-	@include animation-delay(375ms);
 }
 
 .main__stats {
@@ -71,4 +63,25 @@
 	span.climacon {
 		font-size: rem(52);
 	}
+}
+
+.main__location {
+	font-size: rem(18);
+	font-family: $avenirMedium;
+}
+
+.main__seach--delay {
+	@include animation-delay(0.5s);
+}
+
+.main__icon--delay {
+	@include animation-delay(0.625s);
+}
+
+.main__location--delay {
+	@include animation-delay(0.750s);
+}
+
+.main__temperature--delay {
+	@include animation-delay(0.875s);
 }

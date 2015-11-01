@@ -1,0 +1,15 @@
+html,
+body {
+    background-attachment: fixed;
+    color: $white;
+    font: 112.5%/1.5 $avenirRegular;
+    @include breakpoint(md) {
+    	font-size: 120%;
+    }
+    @include breakpoint(sm) {
+    	font-size: 100%;
+    }
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: normal;
+}

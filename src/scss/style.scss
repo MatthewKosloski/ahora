@@ -1,42 +1,7 @@
-@import "misc/variables";
-@import "./bower_components/bourbon/app/assets/stylesheets/bourbon";
-@import "./bower_components/normalize-scss/normalize";
-@import "misc/breakpoints";
+@charset "utf-8";
 
-html,
-body {
-    background-attachment: fixed;
-    color: $white;
-    font: 112.5%/1.5 $avenirRegular;
-    @include breakpoint(md) {font-size: 120%;}
-    @include breakpoint(sm) {font-size: 100%;}
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    font-weight: normal;
-}
-
-@import "misc/fonts";
-@import "lib/climacons";
-@import "misc/reset";
-@import "misc/mixins";
-@import "lib/grid";
-@import "modules/modules";
-@import "lib/animate";
-@import "ngcloak";
-@import "gradients";
-@import "splashes";
-@import "valign";
-@import "search";
-@import "widget";
-@import "sections/main";
-@import "sections/forecast";
-@import "units";
-@import "loader";
-@import "keyframes";
-@import "animations";
-
-.hide-on-mobile {
-	@include breakpoint(sm) {
-		display: none;
-	}
-}
+@import "utils/index";
+@import "vendors/index";
+@import "base/index";
+@import "layout/index";
+@import "components/index";
