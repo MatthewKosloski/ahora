@@ -10,7 +10,7 @@
 
 					var browserWidth = $(window).width();
 
-					if(browserWidth >= 640) {
+					if(browserWidth > 768) {
 						element.bind({
 							mouseenter: function(){
 								mainContent.fadeOut(duration);
