@@ -24,13 +24,13 @@ var paths = {
       ".active" 
     ],
     src: {
-      html: ["./assets/**/*.html","./src/*.html"],
+      html: ["./src/assets/**/*.html","./src/*.html"],
       css: "./www/css/style.css"
     },
     dest: "./www/css/"
   },
   moveAssets: {
-    src: "./assets/**/*",
+    src: "./src/assets/**/*",
     dest: "www"
   },
   sassToCSS: {
@@ -72,7 +72,8 @@ var paths = {
       "./src/js/controllers/*.js",
       "./src/js/factories/*.js",
       "./src/js/directives/*.js",
-      "./src/js/filters/*.js"
+      "./src/js/filters/*.js",
+      "./src/js/*.js"
     ],
     dest: "./www/js/"
   }
