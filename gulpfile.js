@@ -103,7 +103,7 @@ gulp.task("minifyHTML", function() {
     .pipe(gulp.dest(paths.html.dest));
 });
 
-// sass => css
+// sass to css
 gulp.task("sassToCSS", function() {
   return gulp.src(paths.sassToCSS.src)
     .pipe(sass().on("error", sass.logError))
@@ -144,10 +144,10 @@ gulp.task("uglifyJS", ["concatJS"], function() {
 gulp.task("watch", function() {
   gulp.watch(paths.moveAssets.src, ["moveAssets"]);
   gulp.watch(paths.html.src, ["minifyHTML"]);
-  gulp.watch(paths.scss.watch, ["minifyCSS"]);
+  gulp.watch(paths.scss.watch, ["sassToCSS"]);
   gulp.watch(paths.js.src, ["concatJS"]);
 });
 
 // The default task (called when you run `gulp` from cli)
 gulp.task("build", ["moveAssets", "bower", "minifyHTML", "minifyCSS", "concatJS", "uglifyJS"]); /*compresses html, css, js*/
-gulp.task("default", ["moveAssets", "bower", "moveHTML", "unCSS", "concatJS", "watch"]);
+gulp.task("default", ["moveAssets", "bower", "moveHTML", "sassToCSS", "concatJS", "watch"]);
