@@ -76,9 +76,9 @@
 
 .forecast__day__icon {
 	margin: 8px 0;
-	@include breakpoint(md) {
-		margin: 0;
-	}
+	@media (max-height: 480px) {
+    	margin: 0;
+    }
 }
 
 .forecast__day__temperatures {
