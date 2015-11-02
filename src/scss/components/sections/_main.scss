@@ -32,6 +32,12 @@
 	@include breakpoint(md) {
 		top: 17px;
 	}
+	svg {
+		@include breakpoint(md) {
+			width: 20px;
+			height: 20px;
+		}
+	}
 }
 
 .main__icon {
