@@ -1,19 +1,6 @@
-.night-gradient {
-	-moz-background: linear-gradient(#1E0334, #312C69);
-    background: linear-gradient(#1E0334, #312C69);
-}
-
-.sunny-gradient {
-	-moz-background: linear-gradient(#FF5750, #FDCE63);
-	background: linear-gradient(#FF5750, #FDCE63);
-}
-
-.rain-gradient {
-	-moz-background: linear-gradient(#3081FF, #02E8F3);
-	background: linear-gradient(#3081FF, #02E8F3);
-}
-
-.default-gradient {
-	-moz-background: linear-gradient(#45B8D4, #ECE8C8);
-	background: linear-gradient(#45B8D4, #ECE8C8);
+@each $condition, $map in $gradientMaps {
+	.#{$condition}-gradient {
+		-moz-background: linear-gradient(map-get($map, top), map-get($map, bottom));
+    	background: linear-gradient(map-get($map, top), map-get($map, bottom));
+	}
 }
