@@ -27,15 +27,23 @@
         <link rel="dns-prefetch" href="//code.jquery.com">
         <link rel="dns-prefetch" href="//d1l6p2sc9645hc.cloudfront.net">
         <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="./css/style.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700">
+        <link rel="stylesheet" href="./css/style.css">
         <!-- change to "style.min.css" when running "gulp build" -->  
     </head>
     <body ng-class="setColors('gradient')">
         <div class="outer">
+            <div class="error-message animated fadeIn" ng-show="err">
+                <section class="error-message__top">
+                    <span class="icon-circle-cross animated fadeIn"></span>
+                </section>
+                <section class="error-message__bottom">
+                    <h1 class="animated fadeIn">{{statusTitle}}</h1>
+                    <p class="animated fadeIn">{{status}}</p>
+                </section>
+            </div>
              <div class="inner">
                 <div class="content">
-                    <div ng-show="status || !dataLoaded">{{status}}</div>
                     <div class="loader" ng-hide="dataLoaded || err"></div>
                     <div ng-show="dataLoaded">
                         <ul class="units cf animated fadeIn">
@@ -58,7 +66,7 @@
                             </form>
                             <div id="search__cancel" ahora-show-data-on-click>cancel</div>
                         </div>
-                        <div class="widget animated fadeInDown">
+                        <div class="widget animated fadeInDown" ng-class="{'widget--light-shadow':setColors('gradient') == 'rain-gradient'}">
                             <section class="main" ng-class="setColors('splash')" ahora-stats>
                                 <div class="main__search main__search--delay animated fadeIn">
                                     <svg ahora-search-event id="icon" width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><title>Search</title><path d="M10.887 9.473C11.585 8.493 12 7.295 12 6c0-3.314-2.687-6-6-6-3.314 0-6 2.686-6 6 0 3.313 2.686 6 6 6 1.295 0 2.492-.415 3.473-1.113l4.82 4.82c.39.39 1.023.39 1.414 0 .39-.39.39-1.023 0-1.414l-4.82-4.82zM9.435 8.02c-.346.585-.83 1.07-1.415 1.415C7.425 9.785 6.74 10 6 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4c0 .74-.215 1.425-.565 2.02z" fill="#fff" fill-rule="evenodd"/></svg>
@@ -83,7 +91,7 @@
                                     </ul>
                                 </div>
                             </section>
-                            <section class="forecast cf" ng-class="{'forecast--sunny':setColors('gradient') == 'sunny-gradient'}">
+                            <section class="forecast cf" ng-class="{'forecast--light':setColors('gradient') == 'sunny-gradient' || setColors('gradient') == 'rain-gradient'}">
                                 <div class="forecast__inner">
                                     <div class="forecast__day cf animated fadeIn" ng-repeat="day in forecast">
                                         <ul>
@@ -103,7 +111,7 @@
                 </div>
             </div>
         </div>
-        <script src="./js/script.min.js"></script>
+        <script src="./js/script.js"></script>
     <!-- change to "script.min.js" when running "gulp build" -->      
     </body>
 </html>   

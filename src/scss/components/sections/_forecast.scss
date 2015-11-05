@@ -1,4 +1,10 @@
 .forecast {
+	@include breakpoint(md) {
+		position: relative;
+		border-radius: 0;
+    	min-height: 25vh;
+    	padding: 0;
+	}
 	background-color: #2E3335;
 	-webkit-border-bottom-right-radius: 6px;
 	-webkit-border-bottom-left-radius: 6px;
@@ -11,15 +17,9 @@
 		font-size: rem(52);
 		line-height: 0;
 	}
-	@include breakpoint(md) {
-		position: relative;
-		border-radius: 0;
-    	min-height: 25vh;
-    	padding: 0;
-	}
 }
 
-.forecast--sunny {
+.forecast--light {
 	background-color: #fff;
 	li {
 		&:first-child {
@@ -29,10 +29,10 @@
 			color: #9a9a9a;
 		}
 	}
-	.day.high {
+	.high {
 		color: #4a4a4a;
 	}
-	.day.low {
+	.low {
 		color: #9a9a9a;
 	}
 }
@@ -75,10 +75,10 @@
 }
 
 .forecast__day__icon {
-	margin: 8px 0;
 	@media (max-height: 480px) {
     	margin: 0;
     }
+	margin: 8px 0;
 }
 
 .forecast__day__temperatures {
@@ -86,6 +86,6 @@
 	font-size: rem(15);
 }
 
-.day.low {
+.low {
 	color: #999;
 }
