@@ -1,23 +1,32 @@
 (function(){
 	angular.module("controllers")
-		.controller("MainController", ["$scope", "getCoordinates", "getQueryCoordinates", "getLocationData", "getPlaces", "getWeatherData", "setWeekDay", "setWeatherData", "localStorageService", function($scope, getCoordinates, getQueryCoordinates, getLocationData, getPlaces, getWeatherData, setWeekDay, setWeatherData, localStorageService) {
+		.controller("MainController", ["$scope", "getCoordinates", "getQueryCoordinates", "getLocationData", "getPlaces", "getWeatherData", "setWeekDay", "setWeatherData", "localStorageService", "errorTitles", function($scope, getCoordinates, getQueryCoordinates, getLocationData, getPlaces, getWeatherData, setWeekDay, setWeatherData, localStorageService, errorTitles) {
 			$scope.status = "";
 			$scope.dataLoaded = false;
 			$scope.err = false;	
+			$scope.statusTitle = errorTitles;
 
 			var promiseA = getCoordinates.getData();
 			var promiseB = promiseA.then(function(response) {
 				return getLocationData.getData(response, "latlng");
 			}, function(error){
 				$scope.status = error;
+				$scope.statusTitle = "Mr. Incognito..";
 				$scope.err = true;
+				console.log("PromiseB returned an error.");	
 			});
 			var promiseC = promiseB.then(function(response){
 				var data = response.data;
 				getPlaces.getData(data);
 				return getPlaces.promise();
+			}, function(error){
+				if(error.status) {
+					$scope.setError(error);
+					console.log("PromiseC returned an error.");				
+				}
 			});
 			var promiseD = promiseC.then(function(response){
+				console.log(response);
 				// set unit and clock based on location
 				if(localStorageService.get("ahoraUserUnit") === null) {
 					$scope.unit = (/BS|BZ|KY|PW|AS|US|VI/.test(response.country)) ? "fahrenheit" : "celcius";
@@ -37,15 +46,23 @@
 			var promiseE = promiseD.then(function(response){			
 				setWeatherData.setData(response);
 				return setWeatherData.promise();
+			}, function(error){
+				if(error.status) {
+					$scope.setError(error);
+				}
 			});
 
 			var promiseF = promiseE.then(function(response){
-				for (var key in response) {
-					if (response.hasOwnProperty(key)) {
-				  		$scope[key] = response[key];
+				if(response) {
+					for (var key in response) {
+						if (response.hasOwnProperty(key)) {
+					  		$scope[key] = response[key];
+						}
 					}
+					$scope.dataLoaded = true;
+				} else {
+					$scope.dataLoaded = false;
 				}
-				$scope.dataLoaded = true;
 			});
 
 			$scope.query = function(city){
@@ -60,24 +77,33 @@
 					var data = response.data;
 					getPlaces.getData(data);
 					return getPlaces.promise();
+				}, function(error){
+					$scope.setError(error);
+					console.log("PromiseC returned an error.");	
 				});
 				var promiseD = promiseC.then(function(response){
 					var coords = response.lat + "," + response.lng;
 					$scope.city = response.city;
 					return getWeatherData.getData(coords);
+				}, function(error){
+					$scope.setError(error);
+					console.log("PromiseD returned an error.");		
 				});
 				var promiseE = promiseD.then(function(response){			
 					setWeatherData.setData(response);
 					return setWeatherData.promise();
 				});
-
 				var promiseF = promiseE.then(function(response){
-					for (var key in response) {
-						if (response.hasOwnProperty(key)) {
-					  		$scope[key] = response[key];
+					if(response) {
+						for (var key in response) {
+							if (response.hasOwnProperty(key)) {
+						  		$scope[key] = response[key];
+							}
 						}
+						$scope.dataLoaded = true;
+					} else {
+						$scope.dataLoaded = false;
 					}
-					$scope.dataLoaded = true;
 				});
 			};
 
@@ -115,6 +141,11 @@
 				} else if($scope.temperature >= 80){
 					return "high";
 				}
+			};
+
+			$scope.setError = function(error, msg){
+				$scope.status = msg ? msg : "An unexpected error has occurred and no data was received.";
+				$scope.err = true;
 			};
 
 		}]);
