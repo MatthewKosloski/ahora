@@ -121,7 +121,7 @@
 					$scope.splashColor = "#FB5650";
 					return "sunny-" + arg;
 				} else if($scope.icon === "rain" || $scope.icon === "hail" || $scope.icon === "sleet" || $scope.icon === "snow" || $scope.temperature < 32) {
-					$scope.splashColor = "#3081FF";
+					$scope.splashColor = "#2BC2FF";
 					return "rain-" + arg; 
 				} else {
 					$scope.splashColor = "#0087C4";
