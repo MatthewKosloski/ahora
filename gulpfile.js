@@ -4,7 +4,6 @@ var gulp = require("gulp"),
     watch = require("gulp-watch"),
     uglify = require("gulp-uglify"),
     concat = require("gulp-concat"),
-    bower = require("gulp-bower"),
     minifyCss = require("gulp-minify-css"),
     uncss = require('gulp-uncss'),
     rename = require("gulp-rename");
@@ -48,9 +47,6 @@ var paths = {
     src: "./www/js/script.js",
     new: "script.min.js"
   },
-  bower: {
-    dest: "src/lib"
-  },
   html: {
     src: "./src/*.html",
     dest: "www"
@@ -65,8 +61,8 @@ var paths = {
   },
   js: {
     src: [
-      "./src/lib/angular/angular.js",
-      "./src/lib/angular-local-storage/dist/angular-local-storage.js",
+      "./bower_components/angular/angular.js",
+      "./bower_components/angular-local-storage/dist/angular-local-storage.js",
       "./src/js/app.js",
       "./src/js/modules/*.js",
       "./src/js/controllers/*.js",
@@ -89,12 +85,6 @@ gulp.task("moveAssets", function(){
 gulp.task("moveHTML", function(){
   return gulp.src(paths.html.src)
     .pipe(gulp.dest(paths.html.dest));
-});
-
-// put bower components in lib folder
-gulp.task("bower", function() {
-  return bower()
-    .pipe(gulp.dest(paths.bower.dest));
 });
 
 // minify html 
@@ -150,5 +140,5 @@ gulp.task("watch", function() {
 });
 
 // The default task (called when you run `gulp` from cli)
-gulp.task("build", ["moveAssets", "bower", "minifyHTML", "minifyCSS", "concatJS", "uglifyJS"]); /*compresses html, css, js*/
-gulp.task("default", ["moveAssets", "bower", "moveHTML", "sassToCSS", "concatJS", "watch"]);
+gulp.task("build", ["moveAssets", "minifyHTML", "minifyCSS", "concatJS", "uglifyJS"]); /*compresses html, css, js*/
+gulp.task("default", ["moveAssets", "moveHTML", "sassToCSS", "concatJS", "watch"]);
