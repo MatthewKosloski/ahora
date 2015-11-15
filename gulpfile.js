@@ -5,7 +5,7 @@ var gulp = require("gulp"),
     uglify = require("gulp-uglify"),
     concat = require("gulp-concat"),
     minifyCss = require("gulp-minify-css"),
-    uncss = require('gulp-uncss'),
+    uncss = require("gulp-uncss"),
     rename = require("gulp-rename");
 
 var paths = {
