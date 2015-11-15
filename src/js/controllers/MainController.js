@@ -10,9 +10,7 @@
 			var promiseB = promiseA.then(function(response) {
 				return getLocationData.getData(response, "latlng");
 			}, function(error){
-				$scope.status = error;
-				$scope.statusTitle = "Mr. Incognito..";
-				$scope.err = true;
+				$scope.setError(error);
 				console.log("PromiseB returned an error.");	
 			});
 			var promiseC = promiseB.then(function(response){
@@ -26,7 +24,6 @@
 				}
 			});
 			var promiseD = promiseC.then(function(response){
-				console.log(response);
 				// set unit and clock based on location
 				if(localStorageService.get("ahoraUserUnit") === null) {
 					$scope.unit = (/BS|BZ|KY|PW|AS|US|VI/.test(response.country)) ? "fahrenheit" : "celcius";
@@ -49,6 +46,7 @@
 			}, function(error){
 				if(error.status) {
 					$scope.setError(error);
+					console.log("PromiseE has returned an error.");
 				}
 			});
 
