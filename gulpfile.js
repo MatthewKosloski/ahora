@@ -16,7 +16,7 @@ var paths = {
       /\.forecast__day:nth-child\(\d\)/, 
       /\.fade(In|Out)(Up|Down)/,
       /\.bounce(In|Out)/,
-      /\.forecast--sunny/,
+      /\.forecast--(sunny|light)/,
       /\.hide-on-\w*/, 
       ".animated",
       ".flash", 
