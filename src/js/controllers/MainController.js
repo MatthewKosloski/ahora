@@ -114,7 +114,7 @@
 			};
 
 			$scope.setColors = function(arg){
-				if($scope.hour >= 0 && $scope.hour <= 6 || $scope.hour >= 18 && $scope.hour <= 23) {
+				if(($scope.hour >= 0 && $scope.hour <= 6 && $scope.icon !== "clear-day" || $scope.icon === "clear-night" || $scope.icon === "partly-cloudy-night") || ($scope.hour >= 18 && $scope.hour <= 23 && $scope.icon !== "clear-day" || $scope.icon === "clear-night" || $scope.icon === "partly-cloudy-night")) {
 					$scope.splashColor = "#5B4ACF";
 					return "night-" + arg;
 				} else if($scope.icon === "clear-day" && $scope.temperature >= 80){
